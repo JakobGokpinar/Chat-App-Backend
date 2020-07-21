@@ -6,5 +6,7 @@
             "email": "48160017+AhmetGkp@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "adodb/adodb-php": "dev-master"
+    }
 }
