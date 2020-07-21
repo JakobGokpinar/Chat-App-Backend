@@ -1,5 +1,5 @@
 <?php
-
+include("$adodb_path/adodb.inc.php");
 //echo "hi man";
 
 $cleardb_url      = parse_url(getenv("mysql://bfca2adbd98d3d:ebebb0b8@us-cdbr-east-02.cleardb.com/heroku_77553a4fbd53445?reconnect=true"));
