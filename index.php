@@ -1,13 +1,22 @@
 <?php
 
-// Grabs the URI and breaks it apart in case we have querystring stuff
-$request_uri = explode('?', $_SERVER['REQUEST_URI'], 2);
+$cleardb_url      = parse_url(getenv("mysql://bfca2adbd98d3d:ebebb0b8@us-cdbr-east-02.cleardb.com/heroku_77553a4fbd53445?reconnect=true"));
+$cleardb_server   = $cleardb_url["us-cdbr-east-02.cleardb.com"];
+$cleardb_username = $cleardb_url["bfca2adbd98d3d"];
+$cleardb_password = $cleardb_url["ebebb0b8"];
+$cleardb_db       = substr($cleardb_url["heroku_77553a4fbd53445"],1);
 
-if(isset($routes[$request_uri[0]])) {
-  require '$routes[$request_uri[0]]';
-} else {
-  header('HTTP/1.0 404 Not Found');
-  require '404.php';
-}
+$db = NewADOConnection('mysqli');
+$db->Connect(
+	$cleardb_server,
+	$cleardb_username,
+	$cleardb_password,
+	$cleardb_db);
+
+// Ensure fields are (only) indexed by column name
+$ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
+
+// Use UTF-8
+$db->EXECUTE("set names 'utf8'"); 
 
 ?>
