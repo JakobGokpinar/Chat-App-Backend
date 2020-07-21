@@ -8,7 +8,8 @@ $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
 $cleardb_db       = substr($cleardb_url["path"],1);
 
-$db = NewADOConnection('mysqli');
+#$db = NewADOConnection('mysqli');
+$db = __construct('mysqli');
 $db->Connect(
 	$cleardb_server,
 	$cleardb_username,
