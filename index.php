@@ -1,5 +1,5 @@
 <?php
-#require('..\\..\\vendor\\adodb\\adodb-php\\adodb.inc.php');
+include('adodb.inc.php');
 //echo "hi man";
 
 $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -8,8 +8,8 @@ $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
 $cleardb_db       = substr($cleardb_url["path"],1);
 
-#$db = NewADOConnection('mysqli');
-$db = __construct('mysqli');
+$db = NewADOConnection('mysqli');
+#$db = __construct('mysqli');
 $db->Connect(
 	$cleardb_server,
 	$cleardb_username,
