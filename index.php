@@ -1,8 +1,8 @@
 <?php
 
-//echo "hi man";
+echo "hi man";
 
-$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
+/*$cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server   = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
@@ -19,6 +19,6 @@ $db->Connect(
 $ADODB_FETCH_MODE = ADODB_FETCH_ASSOC;
 
 // Use UTF-8
-$db->EXECUTE("set names 'utf8'"); 
+$db->EXECUTE("set names 'utf8'"); */
 
 ?>
