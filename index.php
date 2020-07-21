@@ -3,10 +3,10 @@ include("vendor\\adodb\\adodb.inc.php");
 //echo "hi man";
 
 $cleardb_url      = parse_url(getenv("mysql://bfca2adbd98d3d:ebebb0b8@us-cdbr-east-02.cleardb.com/heroku_77553a4fbd53445?reconnect=true"));
-$cleardb_server   = $cleardb_url["us-cdbr-east-02.cleardb.com"];
-$cleardb_username = $cleardb_url["bfca2adbd98d3d"];
-$cleardb_password = $cleardb_url["ebebb0b8"];
-$cleardb_db       = substr($cleardb_url["heroku_77553a4fbd53445"],1);
+$cleardb_server   = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db       = substr($cleardb_url["path"],1);
 
 $db = NewADOConnection('mysqli');
 $db->Connect(
