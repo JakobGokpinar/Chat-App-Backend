@@ -1,5 +1,5 @@
 <?php
-require('vendor\\adodb\\adodb-php\\adodb.inc.php');
+require('..\\..\\vendor\\adodb\\adodb-php\\adodb.inc.php');
 //echo "hi man";
 
 $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
