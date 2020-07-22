@@ -6,6 +6,10 @@
             "email": "48160017+AhmetGkp@users.noreply.github.com"
         }
     ],
+    "post-install-cmd": [
+        "php artisan clear-compiled",
+        "chmod -R 777 public/"
+    ],
     "require": {
         "adodb/adodb-php": "dev-master",
         "ext-mysqli": "*"
