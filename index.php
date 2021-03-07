@@ -1,5 +1,5 @@
 <?php
-//connecting to heroku mysql database
+//Connecting to heroku mysql database
 
 
 //Get Heroku ClearDB connection information

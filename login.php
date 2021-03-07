@@ -6,11 +6,13 @@
     session_start(); 
     $username = mysqli_real_escape_string($connection, $_POST["username"]);
     $password = mysqli_real_escape_string($connection, $_POST["password"]);
-    $result = mysqli_query($connection, "SELECT * FROM users WHERE username = '$username' AND password = '$password'");
+
+    //Check if the username and password matches
+    $result = mysqli_query($connection, "SELECT * FROM users WHERE username = '$username' AND password = '$password'"); 
 
     if(mysqli_fetch_assoc($result) !== null){
-        $_SESSION['loggedIn'] = true;
-        $_SESSION['loggedUser'] = $username;
+        $_SESSION['loggedIn'] = true; //Create loggedIn session and make it true.
+        $_SESSION['loggedUser'] = $username; //Create loggedUser session which equals to current logged in user.
         echo "login successful";
     } else {
         $_SESSION['loggedIn'] = false;

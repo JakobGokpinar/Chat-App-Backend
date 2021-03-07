@@ -1,4 +1,5 @@
 <?php
+    //check if the user is logged in to use the application.
     require 'connection.php';
 
     if(!isset(($_SESSION["loggedIn"]))){
@@ -6,5 +7,5 @@
         exit();
     }
 
-    $username = $_SESSION["loggedUser"];
+    $username = $_SESSION["loggedUser"]; //Global variable $username which is taken from loggedUser session
 ?>

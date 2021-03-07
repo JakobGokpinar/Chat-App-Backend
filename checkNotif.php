@@ -1,4 +1,6 @@
 <?php
+    //Gets the notification count between the user and chatted friend.
+
     require 'connection.php';
     require 'checklog.php';
 

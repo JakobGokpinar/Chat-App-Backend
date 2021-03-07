@@ -169,7 +169,12 @@ BEGIN
     END IF;
 END//
 
-
+--Set notification count between to users.
+DELIMITER //
+CREATE PROCEDURE setNotification(receiver VARCHAR(25), sender VARCHAR(25), sayi INTEGER)
+BEGIN
+    UPDATE notiftable SET notiftable.counts = sayi WHERE notiftable.sender = sender AND notiftable.receiver = receiver;
+END //
 
 /* çöp
 SELECT DISTINCT sender, receiver, msg FROM 
@@ -236,9 +241,5 @@ LEFT JOIN
     ON temp_messages.sender = temp_friends.friend;
 END
 
-DELIMITER //
-CREATE PROCEDURE setNotification(receiver VARCHAR(25), sender VARCHAR(25), sayi INTEGER)
-BEGIN
-    UPDATE notiftable SET notiftable.counts = sayi WHERE notiftable.sender = sender AND notiftable.receiver = receiver;
-END //
+
 */
