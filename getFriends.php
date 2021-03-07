@@ -1,37 +1,39 @@
 <?php
-    require 'connection.php';
-    require 'checklog.php';
+    require 'connection.php'; //check database connection
+    require 'checklog.php'; //check if user is logged in
 
-    $username = mysqli_real_escape_string($connection, $username);
-    $result = mysqli_query($connection, "CALL getFriends('$username')");
-    $requests = array();
+    $username = mysqli_real_escape_string($connection, $username);  //makes the string suitable for mysql query.
+    $result = mysqli_query($connection, "CALL getFriends('$username')");    //calls mysql procedure getFriends() and gives a parameter, username.
+    $requests = array();    //creates an array to store returned datas from query, $result.
 
-    while($row = mysqli_fetch_assoc($result)){
-        $timediff = explode(":", $row["lastdate"]);
+    while($row = mysqli_fetch_assoc($result)){  //mysqli_fetch_assoc returns each data set as row that comes from $result query.
+        $timediff = explode(":", $row["lastdate"]); //get lastdate value in datetime type and parse by :
         $strdiff = "";
         if($timediff[0] == "no date")
             $strdiff = " ";
-        else if($timediff[0] > 24){
+        else if($timediff[0] > 24){ //if 1 or more days have passed since last message
             $strdiff = "" . floor($timediff[0] / 24) . " d";
             if(intval(explode(" ", $strdiff)[0]) < 5){
                 if(intval(explode(" ", $strdiff)[0]) == 1){
                     $strdiff = "Yesterday";
                 } else{
-                    $date = date("D",strtotime("-" . explode(" ", $strdiff)[0] . " day"));
+                    $date = date("D",strtotime("-" . explode(" ", $strdiff)[0] . " day"));  //create a date showing how many days has passed in D (days) format
                     $strdiff = $date;
                 }
             }
         }
-        else if($timediff[0] >= 1)
-            $strdiff = "" . intval($timediff[0]) . " h";
-        else if($timediff[1] >= 1)
-            $strdiff = "" . intval($timediff[1]) . " m";
+        else if($timediff[0] >= 1)  //if 1 or more hours passed
+            $strdiff = "" . intval($timediff[0]) . " h";    //convert integer passed hour value into string type.
+        else if($timediff[1] >= 1)  //if 1 or more minutes passed
+            $strdiff = "" . intval($timediff[1]) . " m";    //convert integer passed minute value into string type.
         else
             $strdiff = "Now";
 
+        // insert friend,notification count,last message and passed time since last message into the $requests array.
         array_push($requests, array($row["friend"], $row["counts"],$row["lastmsg"], $strdiff));
     }
     
+    //return $requests array in json type.
     echo json_encode($requests);
 
 ?>
