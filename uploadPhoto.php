@@ -1,7 +1,22 @@
 <?php
     require 'connection.php';
     require 'checklog.php';
+    require 'vendor/autoload.php';
 
+    use Aws\S3\S3Client;
+
+    use Aws\Exception\AwsException;
+
+    $s3Client = new S3Client([
+        'version'     => 'latest',
+        'region'      => 'eu-central-1',
+        'credentials' => [
+            'key'    => 'AKIAU4LAKYYRWW6SJQOM',
+            'secret' => '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',
+        ],
+    ]);
+
+    
     function encode_file_path($str){
         $badchars = array(['/', '!'], ['*', '.']);
         

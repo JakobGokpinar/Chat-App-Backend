@@ -8,7 +8,8 @@
     ],
     "require": {
         "adodb/adodb-php": "dev-master",
-        "ext-mysqli": "*"
+        "ext-mysqli": "*",
+        "aws/aws-sdk-php": "^3.147"
     }
       
 }

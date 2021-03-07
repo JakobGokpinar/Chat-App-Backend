@@ -10,7 +10,7 @@
         $timediff = explode(":", $row["lastdate"]);
         $strdiff = "";
         if($timediff[0] == "no date")
-            $strdiff = "cCc";
+            $strdiff = " ";
         else if($timediff[0] > 24){
             $strdiff = "" . floor($timediff[0] / 24) . " d";
             if(intval(explode(" ", $strdiff)[0]) < 5){
