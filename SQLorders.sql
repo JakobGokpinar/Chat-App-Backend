@@ -91,7 +91,8 @@ Collect all messages where person is either sender or receiver.
         GROUP BY
         sender, receiver
     ) AS `temp_messages`
-    ON temp_messages.sender = temp_friends.friend;
+    ON temp_messages.sender = temp_friends.friend
+    ORDER BY lastdate;
 END//
 
 --Adds the users as friends into the friends table. Happens when one accepts the other's friend request. 

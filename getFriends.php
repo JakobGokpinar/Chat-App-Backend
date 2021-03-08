@@ -6,8 +6,10 @@
     $result = mysqli_query($connection, "CALL getFriends('$username')");    //calls mysql procedure getFriends() and gives a parameter, username.
     $requests = array();    //creates an array to store returned datas from query, $result.
 
-    while($row = mysqli_fetch_assoc($result)){  //mysqli_fetch_assoc returns each data set as row that comes from $result query.
-        $timediff = explode(":", $row["lastdate"]); //get lastdate value in datetime type and parse by :
+    while($row = mysqli_fetch_assoc($result)){ 
+       // echo $row["lastdate"];}  
+        //mysqli_fetch_assoc returns each data set as row that comes from $result query.
+    $timediff = explode(":", $row["lastdate"]); //get lastdate value in datetime type and parse by :
         $strdiff = "";
         if($timediff[0] == "no date")
             $strdiff = " ";

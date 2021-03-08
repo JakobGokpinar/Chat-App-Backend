@@ -1,5 +1,9 @@
+Yapılan:
 -mail gönderme hatası
 -bildirim kontrolünün sadece belirli bir kullanıcı ile değil bütün kullanıcılarla olması ve sürekli olması
--arkadaşları, son konuşma üzerinden geçen zamana göre küçükten büyüğe doğru sıralayarak getir.
 -mailbox a geçerken animasyon hatası
--profile fotoğrafı değiştirememe sorunu
+-profile fotoğrafı değiştirememe sorunu(heroku database)
+-tekrar eden kodları fonksiyon şeklinde yazma
+
+Yapıldı:
++arkadaşları, son konuşma üzerinden geçen zamana göre küçükten büyüğe doğru sıralayarak getir.
