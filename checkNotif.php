@@ -10,5 +10,4 @@
 
     $row = mysqli_fetch_assoc($result);
     echo $row["counts"];
-
 ?>
