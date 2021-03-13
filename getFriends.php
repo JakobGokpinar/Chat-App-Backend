@@ -31,7 +31,7 @@
         else
             $strdiff = "Now";
 
-        // insert friend,notification count,last message and passed time since last message into the $requests array.
+        // insert friend username,notification count,last message and the passed time since last message into the $requests array.
         array_push($requests, array($row["friend"], $row["counts"],$row["lastmsg"], $strdiff));
     }
     
