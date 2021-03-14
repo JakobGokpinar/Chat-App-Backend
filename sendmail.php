@@ -8,5 +8,6 @@
     $headers = "From: ahmettabar2003@gmail.com" . "\r\n" .
     "CC: ahmettabar2003@gmail.com";
 
-    mail($to,$subject,$message,$headers);
+    $result = mail($to,$subject,$message,$headers);
+    echo $result;
 ?>
