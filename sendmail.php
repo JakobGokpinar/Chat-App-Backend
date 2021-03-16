@@ -1,22 +1,29 @@
 <?php
     
-    require("sendgrid/sendgrid-php.php");
+    /*require("sendgrid/sendgrid-php.php");
+
+    $name = "Chat App Mail";
+    $senderemail = $_POST["email"];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
 
     $email = new \SendGrid\Mail\Mail(); 
-$email->setFrom("ahmettabar2003@gmail.com", "Example User");
-$email->setSubject("Sending with SendGrid is Fun");
-$email->addTo("ahmettabar2003@gmail.com", "Example User");
-$email->addContent("text/plain", "bu bir test mesajı");
+    $email->setFrom($senderemail,$name);
+    $email->setSubject($subject);
+    $email->addTo($senderemail);
+    $email->addContent("text/plain", $message);
 
-$sendgrid = new \SendGrid("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");
-try {
-    $response = $sendgrid->send($email);
-    print $response->statusCode() . "\n";
-    print_r($response->headers());
-    print $response->body() . "\n";
-} catch (Exception $e) {
-    echo 'Caught exception: '. $e->getMessage() ."\n";
-}
+    $sendgrid = new \SendGrid("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");
+    try {
+        $response = $sendgrid->send($email);
+        print $response->statusCode() . "\n";
+        print_r($response->headers());
+        print $response->body() . "\n";
+    } catch (Exception $e) {
+        echo 'Caught exception: '. $e->getMessage() ."\n";
+    }*/
+
+
     /*use PHPMailer\PHPMailer\PHPMailer;
 
     $name = "tolga";
@@ -66,6 +73,69 @@ try {
     $headers = "From: ahmettabar2003@gmail.com" . "\r\n" .
     "CC: ahmettabar2003@gmail.com";
 
+    // Please specify your Mail Server - Example: mail.example.com.
+    ini_set("SMTP","smtp.sendgrid.com");
+
+// Please specify an SMTP Number 25 and 8889 are valid SMTP Ports.
+    ini_set("smtp_port","25");
+
+// Please specify the return address to use
+    ini_set('sendmail_from', $senderemail);
+
     $result = mail($to,$subject,$message,$headers);
-    echo $result;*/
+    if($result){
+        echo "sentt";
+    }
+    else{
+        echo "fail";
+    }*/
+
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
+
+    require_once __DIR__ . '/vendor/phpmailer/src/Exception.php';
+    require_once __DIR__ . '/vendor/phpmailer/src/PHPMailer.php';
+    require_once __DIR__ . '/vendor/phpmailer/src/SMTP.php';
+
+    $name = "Chat App Mail";
+    $senderemail = $_POST["email"];
+    $name = explode("@",$senderemail)[0];
+    $subject = $_POST["subject"];
+    $message = $_POST["message"];
+
+    // passing true in constructor enables exceptions in PHPMailer
+    $mail = new PHPMailer(true);
+
+    try {
+        // Server settings
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587;
+
+        $mail->Username = 'ahmettabar2003@gmail.com'; // YOUR gmail email
+        $mail->Password = 'b2003tgdg'; // YOUR gmail password
+
+        // Sender and recipient settings
+        $mail->setFrom('ahmettabar2003@gmail.com', $name);
+        $mail->addAddress('ahmettabar2003@gmail.com', 'GokSoft Technologies');
+        //$mail->addReplyTo('ahmettabar2003@gmail.com', 'Replier Name'); // to set the reply to
+
+        // Setting the email content
+        $mail->IsHTML(true);
+        $mail->Subject = "(Contact Us) ".$subject;
+        $mail->Body = "From:  $senderemail <br> <br> $message";
+
+        
+        if($mail->send()){
+            echo "mail sent";
+        } else{
+            echo "not sent";
+        }
+    } catch (Exception $e) {
+        echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+    }
 ?>
