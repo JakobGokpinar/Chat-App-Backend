@@ -18,9 +18,9 @@
     $file = fopen($imgDir,'w');
 
     $result = mysqli_query($connection, "SELECT photo FROM users WHERE username='$user'");
-    $images = glob($defaultImgDir, GLOB_BRACE);
-    /*while($row = mysqli_fetch_assoc($result)){
-        if($row["photo"] != null){
+
+    while($row = mysqli_fetch_assoc($result)){
+        if($row["photo"] != null || $row["photo"] != false){
             file_put_contents($imgDir, $row["photo"]);
             $images = glob($imgDir, GLOB_BRACE); //get the file with user's photo..
             
@@ -28,7 +28,7 @@
         else{
             $images = glob($defaultImgDir, GLOB_BRACE); //get the file with user's photo..
         }
-    }*/
+    }
     
     $images = $images[0];
 
