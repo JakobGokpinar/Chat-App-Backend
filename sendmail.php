@@ -1,47 +1,27 @@
 <?php
-    //PHPMailer is a library to send emails via Php. 
-    //Use needed classes from PHPMailer.
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-    use PHPMailer\PHPMailer\Exception;
-
-    require_once __DIR__ . '/vendor/phpmailer/src/Exception.php';
-    require_once __DIR__ . '/vendor/phpmailer/src/PHPMailer.php';
-    require_once __DIR__ . '/vendor/phpmailer/src/SMTP.php';
+    require 'vendor/autoload.php';
+    require 'sendgrid/sendgrid-php.php';
 
     $senderemail = $_POST["email"]; //Get sender's email from frontend.
     $name = explode("@",$senderemail)[0];
     $subject = $_POST["subject"]; 
     $message = $_POST["message"];
 
-    // passing true in constructor enables exceptions in PHPMailer
-    $mail = new PHPMailer(true);
+    $email = new \SendGrid\Mail\Mail();
+    $API_KEY = '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'; 
+    $email->setFrom("ahmettabar2003@gmail.com", $name);
+    $email->setSubject("(Contact Us) ".$subject);
+    $email->addTo("ahmettabar2003@gmail.com", "GokSoft Technologies");
+    $email->addContent("text/plain", "From:  $senderemail \n\n$message");
 
+    $sendgrid = new \SendGrid($API_KEY);
     try {
-        // Server settings
-        $mail->SMTPDebug = SMTP::DEBUG_SERVER; // for detailed debug output
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Port = 587;
-
-
-        // Sender and recipient settings
-        $mail->setFrom('ahmettabar2003@gmail.com', $name);
-        $mail->addAddress('ahmettabar2003@gmail.com', 'GokSoft Technologies');
-
-        // Setting the email content
-        $mail->IsHTML(true);
-        $mail->Subject = "(Contact Us) ".$subject;
-        $mail->Body = "From:  $senderemail <br> <br> $message";
-        
-        if($mail->send()){
-            echo "mail sent";
-        } else{
-            echo "mail not sent";
-        }
+        $response = $sendgrid->send($email);
+        print $response->statusCode() . "\n";
+        print_r($response->headers());
+        print $response->body() . "\n";
+        echo "mail sent";
     } catch (Exception $e) {
-        echo "Error in sending email. Mailer Error: {$mail->ErrorInfo}";
+        echo 'Caught exception: '. $e->getMessage() ."\n";
     }
 ?>
