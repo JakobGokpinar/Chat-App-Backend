@@ -1,5 +1,4 @@
 <?php
-   // require 'vendor/autoload.php';
     require 'sendgrid/sendgrid-php.php';
 
     $senderemail = $_POST["email"]; //Get sender's email from frontend.
