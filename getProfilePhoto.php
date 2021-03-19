@@ -2,29 +2,34 @@
     /*Gets a user's profile photo.
 
     Users' profile photos are stored under 'users' folder by name.
-    When a user changes their default photo, default.jpg, a new folder with the new photo is created.
+    When a user changes his default photo, default.jpg, a new folder with the new photo is created.
     */
 
     require('connection.php');
-    #require('checklog.php');
+    //require('checklog.php');
 
-    $username = $_GET["username"];  //The user whose profile photo will get.
+    $user = $_GET["username"];
 
-    if (!isset($_GET["username"])) { //Check if the username has been obtained correctly.
-        echo "not found";
-        exit();
-    }
+    $imgDir = "photos/image.jpg";
+    $defaultImgDir = "photos/default.jpg";
 
-    $rawDir = "users/";
-    $directory = $rawDir . $username;   //directory of the photo
+    $images = null; 
 
-    $images = null; //File which contains the photo.
+    $file = fopen($imgDir,'w');
+
+    $result = mysqli_query($connection, "SELECT photo FROM users WHERE username='$user'");
     
-    if (!file_exists($directory)) {   //if there is no folder with the username, get the default image file.
-        $images = glob($rawDir."default.jpg", GLOB_BRACE);
-    }else{ 
-        $images = glob($directory. "/*.{jpg,png,bmp}", GLOB_BRACE); //get the file with user's photo..
+    while($row = mysqli_fetch_assoc($result)){
+        if($row["photo"] != null){
+            file_put_contents($imgDir, $row["photo"]);
+            $images = glob($imgDir, GLOB_BRACE); //get the file with user's photo..
+            
+        }
+        else{
+            $images = glob($defaultImgDir, GLOB_BRACE); //get the file with user's photo..
+        }
     }
+    
     $images = $images[0];
 
     $fp = fopen($images, 'rb'); //open the file.

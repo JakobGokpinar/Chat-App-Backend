@@ -7,5 +7,5 @@
         exit();
     }
 
-    $username = $_SESSION["loggedUser"]; //Global variable $username which is taken from loggedUser session
+    $username = $_SESSION["loggedUser"]; //Global variable $username which is taken from loggedUser session from login.php
 ?>
