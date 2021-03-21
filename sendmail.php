@@ -1,5 +1,6 @@
 <?php
 require 'sendgrid/sendgrid-php.php';
+require '@sendgrid/mail';
    /* require 'vendor/autoload.php';
     
 
