@@ -35,8 +35,20 @@ require 'sendgrid/sendgrid-php.php';
 
 $message = "The mail message was sent with the following mail setting:\r\nSMTP = aspmx.l.google.com\r\nsmtp_port = 25\r\nsendmail_from = YourMail@address.com";
 
-$headers = "From: YOURMAIL@gmail.com";
+$headers = "From: ahmettabar2003@gmail.com";
 
-mail("ahmettabar2003@gmail.com", "Testing", $message, $headers);
+try {
+    $res = mail("ahmettabar2003@gmail.com", "Testing", $message, $headers);
+    if($res){
+        echo "mailsent";
+    }
+    else{
+        echo "not sent";
+    }
 echo "Check your email now....&lt;BR/>";
+} catch (Exception $e) {
+    echo 'Caught exception: '. $e->getMessage() ."\n";
+}
+
+
 ?>
