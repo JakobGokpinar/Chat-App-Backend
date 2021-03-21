@@ -29,7 +29,7 @@ require 'sendgrid/sendgrid-php.php';
     $email = $_POST["email"]; //Get sender's email from frontend.
     $name = explode("@",$senderemail)[0];
     $subject = $_POST["subject"]; 
-    $message = "From: $senderemail \n\n$_POST["message"]";
+    $message = $_POST["message"];
 
     $subject = "(Contact Us) $subject";
     $body = "From:  $senderemail \n\n$message";
@@ -57,7 +57,7 @@ require 'sendgrid/sendgrid-php.php';
         "content" => array(
             array(
                 "type" => "text/html",
-                "value" => $message
+                "value" => $body
             )
         )
     );
