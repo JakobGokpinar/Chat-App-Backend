@@ -1,6 +1,5 @@
 <?php
 require 'sendgrid/sendgrid-php.php';
-require '@sendgrid/mail';
    /* require 'vendor/autoload.php';
     
 
@@ -26,30 +25,52 @@ require '@sendgrid/mail';
     } catch (Exception $e) {
         echo 'Caught exception: '. $e->getMessage() ."\n";
     }*/
+    $email = "ahmettabar2003@gmail.com";
+    $name = "tolga bey";
+    $body = "Hey man, how are you? <br><br><a href='https://google.com'>Google</a>";
+    $subject = "Test email";
 
+    $headers = array(
+        'Authorization: Bearer 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',
+        'Content-Type: application/json'
+    );
 
-    ini_set("SMTP", "smtp.sendgrid.net");
-    ini_set("sendmail_from", "ahmettabar2003@gmail.com");
-    ini_set("Port", "25");
-    ini_set("Username", "apikey");
-    ini_set("Password", "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");
+    $data = array(
+        "personalizations" => array(
+            array(
+                "to" => array(
+                    array(
+                        "email" => $email,
+                        "name" => $name
+                    )
+                )
+            )
+        ),
+        "from" => array(
+            "email" => "ahmettabar2003@gmail.com"
+        ),
+        "subject" => $subject,
+        "content" => array(
+            array(
+                "type" => "text/html",
+                "value" => $body
+            )
+        )
+    );
 
-$message = "The mail message was sent with the following mail setting:\r\nSMTP = aspmx.l.google.com\r\nsmtp_port = 25\r\nsendmail_from = YourMail@address.com";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, "https://api.sendgrid.com/v3/mail/send");
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
-$headers = "From: ahmettabar2003@gmail.com";
-
-try {
-    $res = mail("ahmettabar2003@gmail.com", "Testing", $message, $headers);
-    if($res){
-        echo "mailsent";
-    }
-    else{
-        echo "not sent";
-    }
-echo "Check your email now....&lt;BR/>";
-} catch (Exception $e) {
-    echo 'Caught exception: '. $e->getMessage() ."\n";
-}
+    echo "cevap";
+    echo $response;
+  
 
 
 ?>
