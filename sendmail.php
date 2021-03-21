@@ -26,7 +26,7 @@ require 'sendgrid/sendgrid-php.php';
         echo 'Caught exception: '. $e->getMessage() ."\n";
     }*/
 
-    $email = $_POST["email"]; //Get sender's email from frontend.
+    $senderemail = $_POST["email"]; //Get sender's email from frontend.
     $name = explode("@",$senderemail)[0];
     $subject = $_POST["subject"]; 
     $message = $_POST["message"];
@@ -44,7 +44,7 @@ require 'sendgrid/sendgrid-php.php';
             array(
                 "to" => array(
                     array(
-                        "email" => $email,
+                        "email" => $senderemail,
                         "name" => $name
                     )
                 )
