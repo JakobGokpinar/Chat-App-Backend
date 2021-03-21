@@ -25,10 +25,11 @@ require 'sendgrid/sendgrid-php.php';
     } catch (Exception $e) {
         echo 'Caught exception: '. $e->getMessage() ."\n";
     }*/
-    $email = "ahmettabar2003@gmail.com";
-    $name = "tolga bey";
-    $body = "Hey man, how are you? <br><br><a href='https://google.com'>Google</a>";
-    $subject = "Test email";
+
+    $email = $_POST["email"]; //Get sender's email from frontend.
+    $name = explode("@",$senderemail)[0];
+    $subject = "(Contact Us) $_POST["subject"]"; 
+    $message = "From: $senderemail \n\n$_POST["message"]";
 
     $headers = array(
         'Authorization: Bearer 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',
@@ -53,7 +54,7 @@ require 'sendgrid/sendgrid-php.php';
         "content" => array(
             array(
                 "type" => "text/html",
-                "value" => $body
+                "value" => $message
             )
         )
     );
