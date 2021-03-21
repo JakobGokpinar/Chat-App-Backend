@@ -31,7 +31,7 @@
     $message = $_POST["message"];
 
     $subject = "(Contact Us) $subject";
-    $body = "From:  $senderemail" . "\n\n" . $message;
+    $body = "From:  $senderemail <br><br> $message";
 
     $headers = array(
         'Authorization: Bearer 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',
@@ -74,7 +74,4 @@
 
     echo "cevap";
     echo $response;
-  
-
-
 ?>
