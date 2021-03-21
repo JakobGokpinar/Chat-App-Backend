@@ -1,6 +1,7 @@
 <?php
-    require 'vendor/autoload.php';
-    require 'sendgrid/sendgrid-php.php';
+require 'sendgrid/sendgrid-php.php';
+   /* require 'vendor/autoload.php';
+    
 
     $senderemail = $_POST["email"]; //Get sender's email from frontend.
     $name = explode("@",$senderemail)[0];
@@ -23,5 +24,19 @@
         echo "mail sent";
     } catch (Exception $e) {
         echo 'Caught exception: '. $e->getMessage() ."\n";
-    }
+    }*/
+
+
+    ini_set("SMTP", "smtp.sendgrid.net");
+    ini_set("sendmail_from", "ahmettabar2003@gmail.com");
+    ini_set("Port", "25");
+    ini_set("Username", "apikey");
+    ini_set("Password", "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");
+
+$message = "The mail message was sent with the following mail setting:\r\nSMTP = aspmx.l.google.com\r\nsmtp_port = 25\r\nsendmail_from = YourMail@address.com";
+
+$headers = "From: YOURMAIL@gmail.com";
+
+mail("ahmettabar2003@gmail.com", "Testing", $message, $headers);
+echo "Check your email now....&lt;BR/>";
 ?>
