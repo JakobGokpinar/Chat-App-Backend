@@ -53,5 +53,4 @@
         echo "Sorry, an error occured! Your mail could not be sent.";
         echo "Error: " . $e->getMessage();
     }
-
 ?>
