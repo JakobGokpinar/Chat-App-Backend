@@ -1,5 +1,4 @@
 <?php
-require 'sendgrid/sendgrid-php.php';
    /* require 'vendor/autoload.php';
     
 
@@ -32,7 +31,7 @@ require 'sendgrid/sendgrid-php.php';
     $message = $_POST["message"];
 
     $subject = "(Contact Us) $subject";
-    $body = "From:  $senderemail \n\n$message";
+    $body = "From:  $senderemail \n\n $message";
 
     $headers = array(
         'Authorization: Bearer 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',
@@ -44,7 +43,7 @@ require 'sendgrid/sendgrid-php.php';
             array(
                 "to" => array(
                     array(
-                        "email" => $senderemail,
+                        "email" => "ahmettabar2003@gmail.com",
                         "name" => $name
                     )
                 )
