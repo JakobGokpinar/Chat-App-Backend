@@ -1,9 +1,15 @@
 Yapılan:
--mail gönderme hatası
 -tekrar eden kodları fonksiyon şeklinde yazma
+-gönderilen mesajı görememe
+-her mesajdan sonra arkadaş listesini güncellemek yerine daha verimli bir algoritma geliştirmek
+-mail panelinin uygulama kapatıldığında kapanmaması
+-arkadaşlık isteklerinin sadece uygulama açılışında değil sürekli kontrol edilmesi
+-log off yapıldığında eski kullanıcıya ait thread lerin kapatılması
+-hakan kişisiyle olan sohbetleri görememe
 
 Yapıldı:
 +arkadaşları, son konuşma üzerinden geçen zamana göre küçükten büyüğe doğru sıralayarak getir.
 +bildirim kontrolünün sadece belirli bir kullanıcı ile değil bütün kullanıcılarla olması ve sürekli olması.
 +mailbox a geçerken animasyon hatası.
 +profile fotoğrafı değiştirememe sorunu(heroku database)
++mail gönderme hatası

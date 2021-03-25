@@ -48,7 +48,7 @@
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $response = curl_exec($ch);
         curl_close($ch);
-        echo "Your message has been successfully. Thanks For Your Feedback!";
+        echo "Your message has been sent successfully. Thanks For Your Feedback!";
     } catch(Exception $e){
         echo "Sorry, an error occured! Your mail could not be sent.";
         echo "Error: " . $e->getMessage();
