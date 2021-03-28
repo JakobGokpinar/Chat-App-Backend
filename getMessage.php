@@ -11,15 +11,15 @@
     mysqli_next_result($connection);
     $result2 = mysqli_query($connection, "CALL setNotification('$username', '$receiver', 0)");
     $array = array();
-    $var = 0;
+    $var = 326;
     
 
     while($row = mysqli_fetch_assoc($result)){
-        if($var <= 180){
+        if($var >= 180){
             array_push($array, array($row["sender"], $row["msg"]));
 
         }
-        $var += 1;
+        $var -= 1;
     }
     
     
