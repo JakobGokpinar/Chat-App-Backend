@@ -15,7 +15,7 @@
     
 
     while($row = mysqli_fetch_assoc($result)){
-        if($var <= 100){
+        if($var <= 180){
             array_push($array, array($row["sender"], $row["msg"]));
 
         }
