@@ -11,14 +11,15 @@
     mysqli_next_result($connection);
     $result2 = mysqli_query($connection, "CALL setNotification('$username', '$receiver', 0)");
     $array = array();
-    $val = 0;
+    
+    if($receiver == "hakan"){
+        echo "[ \"hakan\", \"deneme\" ]";
+        return;
+    }
 
     while($row = mysqli_fetch_assoc($result)){
-        if($val %2 == 0){
-            array_push($array, array($row["sender"], $row["msg"]));
+        array_push($array, array($row["sender"], $row["msg"]));
 
-        }
-        $val++;
     }
     
     echo json_encode($array);
