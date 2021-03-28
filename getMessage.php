@@ -9,7 +9,7 @@
     //call getMessage() procedure where sender is logged in user and receiver is the chatted friend that taken with post request.
     $result = mysqli_query($connection, "CALL getMessage('$username', '$receiver')"); 
     mysqli_next_result($connection);
-    $result2 = mysqli_query($connection, "CALL setNotification('$username', '$receiver', 0)");
+   // $result2 = mysqli_query($connection, "CALL setNotification('$username', '$receiver', 0)");
     $array = array();
     
     
