@@ -1,6 +1,5 @@
 Yapılan:
 -tekrar eden kodları fonksiyon şeklinde yazma
--arkadaşlık isteklerinin sadece uygulama açılışında değil sürekli kontrol edilmesi
 -log off yapıldığında eski kullanıcıya ait thread lerin kapatılması
 -hakan kişisiyle olan sohbetleri görememe
 
@@ -13,3 +12,4 @@ Yapıldı:
 +gönderilen mesajı görememe
 +her mesajdan sonra arkadaş listesini güncellemek yerine daha verimli bir algoritma geliştirmek
 +mail panelinin uygulama kapatıldığında kapanmaması
++arkadaşlık isteklerinin sadece uygulama açılışında değil sürekli kontrol edilmesi
