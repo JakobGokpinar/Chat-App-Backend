@@ -18,7 +18,7 @@
                 $d[$k] = utf8ize($v);
             }
         } else if (is_string ($d)) {
-            return utf16_encode($d);
+            return utf8_decode($d);
         }
         return $d;
     }
