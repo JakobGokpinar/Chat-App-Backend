@@ -1,7 +1,5 @@
 Yapılan:
 -tekrar eden kodları fonksiyon şeklinde yazma
--gönderilen mesajı görememe
--her mesajdan sonra arkadaş listesini güncellemek yerine daha verimli bir algoritma geliştirmek
 -mail panelinin uygulama kapatıldığında kapanmaması
 -arkadaşlık isteklerinin sadece uygulama açılışında değil sürekli kontrol edilmesi
 -log off yapıldığında eski kullanıcıya ait thread lerin kapatılması
@@ -13,3 +11,5 @@ Yapıldı:
 +mailbox a geçerken animasyon hatası.
 +profile fotoğrafı değiştirememe sorunu(heroku database)
 +mail gönderme hatası
++gönderilen mesajı görememe
++her mesajdan sonra arkadaş listesini güncellemek yerine daha verimli bir algoritma geliştirmek
