@@ -140,8 +140,6 @@ BEGIN
     SELECT * FROM messagetable WHERE messagetable.sender = sender AND messagetable.receiver = receiver
     UNION
     SELECT * FROM messagetable WHERE messagetable.sender = receiver AND messagetable.receiver = sender
-    ORDER BY id
-    DESC LIMIT 125
     ORDER BY id;
 END//
 

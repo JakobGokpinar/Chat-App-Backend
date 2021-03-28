@@ -12,9 +12,20 @@
     $result2 = mysqli_query($connection, "CALL setNotification('$username', '$receiver', 0)");
     $array = array();    
 
+    function utf8ize($d) {
+        if (is_array($d)) {
+            foreach ($d as $k => $v) {
+                $d[$k] = utf8ize($v);
+            }
+        } else if (is_string ($d)) {
+            return utf8_encode($d);
+        }
+        return $d;
+    }
+
     while($row = mysqli_fetch_assoc($result)){
         array_push($array, array($row["sender"], $row["msg"]));
     }
     
-    echo json_encode($array);
+    echo json_encode(utf8ize($array));
 ?>  
