@@ -13,7 +13,7 @@
     $array = array();
     
     if($receiver == "hakan"){
-        echo "[ \"hakan\", \"deneme\" ]";
+        echo "[ [ \"hakan\", \"deneme\" ] ]";
         return;
     }
 
