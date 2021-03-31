@@ -28,5 +28,5 @@
         array_push($array, array($row["sender"], $row["msg"]));
     }
     
-    echo json_encode(($array);
+    echo json_encode(utf8ize($array));
 ?>  
