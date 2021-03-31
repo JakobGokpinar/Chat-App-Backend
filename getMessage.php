@@ -23,7 +23,6 @@
         return $d;
     }*/
 
-
     while($row = mysqli_fetch_assoc($result)){
         array_push($array, array($row["sender"], $row["msg"]));
     }
