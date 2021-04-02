@@ -1,4 +1,4 @@
-    <?php
+<?php
     require 'connection.php';
     require 'checklog.php';
     

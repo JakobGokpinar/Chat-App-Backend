@@ -1,6 +1,5 @@
 Yapılan:
 -tekrar eden kodları fonksiyon şeklinde yazma
--log off yapıldığında eski kullanıcıya ait thread lerin kapatılması
 
 Yapıldı:
 +arkadaşları, son konuşma üzerinden geçen zamana göre küçükten büyüğe doğru sıralayarak getir.
@@ -13,3 +12,4 @@ Yapıldı:
 +mail panelinin uygulama kapatıldığında kapanmaması
 +arkadaşlık isteklerinin sadece uygulama açılışında değil sürekli kontrol edilmesi
 +hakan kişisiyle olan sohbetleri görememe
++log off yapıldığında eski kullanıcıya ait thread lerin kapatılması
