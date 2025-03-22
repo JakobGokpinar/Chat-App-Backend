@@ -1,6 +1,6 @@
 # Chat App Backend
 
-This repository contains the backend code for the Chat App messaging application built with PHP and MySQL. The backend is responsible for handling user authentication, friend management, messaging, image handling, and more. It connects with the frontend via Ajax and supports email functionalities through SendGrid.
+This repository contains the backend code for the Chat App messaging application built with PHP and MySQL. The backend code has the responsibility for handling user authentication, friend management, messaging, image handling, and more. It connects with the frontend via Ajax and supports email functionalities through SendGrid.
 
 ## Table of Contents
 - [Features](#features)
