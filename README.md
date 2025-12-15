@@ -1,4 +1,20 @@
-# Chat App Backend
+## Chat App Backend
+
+# ⚠️ ARCHIVED - Legacy PHP Backend
+
+> **This repository is archived and maintained for historical reference only.**
+> 
+> **🚀 For the active, modernized version, see:** [Java-ChatApp](https://github.com/JakobGokpinar/Java-ChatApp)
+> 
+> This legacy PHP backend has been replaced with a modern Spring Boot REST API. The new version includes:
+> - RESTful API architecture
+> - Better code organization (MVC pattern)
+> - Type safety with Java
+> - Easy local development setup
+> 
+> ---
+> 
+> ## Original README (PHP Backend - 2020)
 
 This repository contains the backend code for the Chat App messaging application built with PHP and MySQL. The backend code has the responsibility for handling user authentication, friend management, messaging, image handling, and more. It connects with the frontend via Ajax and supports email functionalities through SendGrid.
 
