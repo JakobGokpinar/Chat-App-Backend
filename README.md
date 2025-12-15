@@ -1,4 +1,3 @@
-## Chat App Backend
 
 # ⚠️ ARCHIVED - Legacy PHP Backend
 
@@ -11,10 +10,10 @@
 > - Better code organization (MVC pattern)
 > - Type safety with Java
 > - Easy local development setup
-> 
-> ---
-> 
-> ## Original README (PHP Backend - 2020)
+
+### Original README (PHP Backend - 2020)
+
+## Chat App Backend
 
 This repository contains the backend code for the Chat App messaging application built with PHP and MySQL. The backend code has the responsibility for handling user authentication, friend management, messaging, image handling, and more. It connects with the frontend via Ajax and supports email functionalities through SendGrid.
 
