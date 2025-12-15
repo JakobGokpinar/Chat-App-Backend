@@ -13,8 +13,7 @@
 > - Easy local development setup
 > 
 
-
-This is the PHP/MySQL backend for the Chat App messaging application. It provides REST-like endpoints for authentication, friend management, and messaging functionality.
+### This is the PHP/MySQL backend for the Chat App messaging application. It provides REST-like endpoints for authentication, friend management, and messaging functionality.
 
 ## Quick Setup
 
